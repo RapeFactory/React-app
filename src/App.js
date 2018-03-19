@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,88 +9,101 @@ const CONTACTS = [
         phoneNumber: '+250966666666',
         image: 'img/darth.gif',
         email: 'darthvader@sith.net',
-        address: 'DeathStar',
+        address: 'DeathStar'
     }, {
         id: 2,
         name: 'Princess Leia',
         phoneNumber: '+250966344466',
         image: 'img/leia.gif',
         email: 'leiaorgana@rebel.net',
-        address: 'Hot',
+        address: 'Hot'
     }, {
         id: 3,
         name: 'Luke Skywalker',
         phoneNumber: '+250976654433',
         image: 'img/luke.gif',
         email: 'lukeskywalker@rebel.net',
-        address: 'Tatuin',
+        address: 'Tatuin'
     }, {
         id: 4,
         name: 'Chewbacca',
         phoneNumber: '+250456784935',
         image: 'img/chewbacca.gif',
         email: 'chewbacca@archer.net',
-        address: 'Kashiik',
+        address: 'Kashiik'
     }, {
         id: 5,
         name: 'R2D2',
         phoneNumber: '+232223233',
         image: 'img/r2d2.gif',
         email: 'R2D2@driods.net',
-        address: 'DroidSity',
+        address: 'DroidSity'
     },
 ];
 
 class Contact extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             isOpened: false
         };
     }
 
-    hadnleClick = () => {
-        let {isOpened} = this.state;
-        isOpened ? this.setState({
-            isOpened: false
-        }) :
-        this.setState({
-            isOpened: true
-        });
-        console.log(isOpened);
+    handleClick = () => {
+        let { isOpened } = this.state;
+        isOpened
+            ? this.setState({ isOpened: false })
+            : this.setState({ isOpened: true });
     }
 
-    render() {
-        const {image, name, phoneNumber, email, address} = this.props;
-        const {isOpened} = this.state;
-        return  <li className="contact" onClick={this.hadnleClick}>
-                    <img className="contact-image"
-                        src={image}
-                        alt="logo" width="60px"
-                        height="60px"/>
-                    <div className="contact-info">
-                        <div className="contact-name">
-                            {name}
+    handleEnter = () => {
+        this.setState({ isOpened: true });
+    }
+
+    handleLeave = () => {
+        this.setState({ isOpened: false });
+    }
+
+    render () {
+        const {
+            handleClick,
+            handleEnter,
+            handleLeave,
+            props: {
+                image,
+                name,
+                phoneNumber,
+                email,
+                address,
+            }
+        } = this;
+        const { isOpened } = this.state;
+        return <li className="contact" onClick={ handleClick } onMouseEnter={ handleEnter } onMouseLeave={ handleLeave }>
+            <img className="contact-image" src={ image } alt="logo" width="60px" height="60px" />
+            <div className="contact-info">
+                <div className="contact-name">
+                    { name }
+                </div>
+                <div className="contact-number">
+                    { phoneNumber }
+                </div>
+                {
+                    isOpened && <div>
+                        <div className="contact-number">
+                            { email }
                         </div>
                         <div className="contact-number">
-                            {phoneNumber}
+                            From: { address }
                         </div>
-                        {isOpened &&
-                            <div>
-                                <div className="contact-number">
-                                    {email}
-                                </div>
-                                <div className="contact-number">
-                                    {address}
-                                </div>
-                            </div>}
                     </div>
-                </li>;
+                }
+            </div>
+        </li>;
     }
 }
 
 class ContactList extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             displayedContacts: CONTACTS
@@ -99,26 +112,20 @@ class ContactList extends Component {
 
     handleSearch = event => {
         let searchQuery = event.target.value.toLowerCase();
-        let displayedContacts = CONTACTS.filter((el) => {
-            let searchValue = el.name.toLowerCase();
+        let displayedContacts = CONTACTS.filter((row) => {
+            let searchValue = row.name.toLowerCase();
             return searchValue.indexOf(searchQuery) !== -1;
         });
-        this.setState({displayedContacts});
+        this.setState({ displayedContacts });
     }
 
-    render() {
+    render () {
         return <div className="contacts">
-            <input type="text" placeholder="Search..." className="search-field" onChange={this.handleSearch}/>
+            <input type="text" placeholder="Search..." className="search-field" onChange={ this.handleSearch } />
             <ul className="contacts-list">
                 {
-                    this.state.displayedContacts.map((el) => {
-                        return <Contact
-                            key={el.id}
-                            name={el.name}
-                            phoneNumber={el.phoneNumber}
-                            image={el.image}
-                            email={el.email}
-                            address={el.address}/>;
+                    this.state.displayedContacts.map((row) => {
+                        return <Contact key={ row.id } name={ row.name } phoneNumber={ row.phoneNumber } image={ row.image } email={ row.email } address={ row.address } />;
                     })
                 }
             </ul>
@@ -127,14 +134,14 @@ class ContactList extends Component {
 }
 
 class App extends Component {
-    render() {
+    render () {
         return <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
+                <img src={ logo } className="App-logo" alt="logo" />
                 <h1 className="App-title">Makeev vs React</h1>
             </header>
             <div className="App-intro">
-                <ContactList/>
+                <Input />
             </div>
         </div>;
     }
