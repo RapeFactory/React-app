@@ -141,7 +141,7 @@ class App extends Component {
                 <h1 className="App-title">Makeev vs React</h1>
             </header>
             <div className="App-intro">
-                <Input />
+                <ContactList />
             </div>
         </div>;
     }
