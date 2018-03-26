@@ -20,6 +20,19 @@
 
 .App-intro {
   font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.grid {
+  display: inline-grid;
+  grid-column-align: center;
+}
+
+.item {
+  align-self: center;
 }
 
 @keyframes App-logo-spin {
