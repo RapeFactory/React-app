@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Input from './Input'
+import Input from './Input';
+import Hist from './Hist';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -13,9 +15,12 @@ class App extends Component {
           <h1 className="App-title">Makeev vs Sketch Service</h1>
         </header>
         <MuiThemeProvider>
-          <div className="App-intro">
-            <Input />
-          </div>
+          <HashRouter>
+            <Switch>
+              <Route exact path="/" component={Input} />
+              <Route path="/hist" component={Hist} />
+            </Switch>
+          </HashRouter>
         </MuiThemeProvider>
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { RaisedButton, TextField, MenuItem, SelectField } from 'material-ui';
 import ImgList from './ImgList';
+import Menu from './Menu';
 
 const styles = {
   textField: {
@@ -85,7 +86,8 @@ class Input extends Component {
   render() {
     const { imgs, loaded, url } = this.state;
     return (
-      <div>
+      <div className="App-intro">
+        <Menu />
         <div className="grid">
           <SelectField
             className="item"
