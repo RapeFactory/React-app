@@ -5,8 +5,8 @@ class Menu extends Component {
   render() {
     return (
       <div>
-        <Link to="/">Эскизы</Link>
-        <Link to="/hist">История</Link>
+        <Link to="/" className='menu'>Эскизы</Link>
+        <Link to="/hist" className='menu'>История</Link>
       </div>
     );
   }

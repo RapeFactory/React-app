@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { RaisedButton, TextField } from 'material-ui';
 import beautify from 'json-beautify';
 import Menu from './Menu';
+import au from './au';
 
 const styles = {
   textField: {
@@ -10,6 +11,10 @@ const styles = {
   pre: {
     textAlign: 'left',
     maxWidth: '800px'
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 2fr',
   },
 };
 
@@ -25,7 +30,7 @@ class Hist extends Component {
 
   fetchGuid = guid => {
     const headers = new Headers();
-    headers.append('Authorization', 'Basic ' + btoa('makeev_couchdb_admin:36VyxHfRXNAM'));
+    headers.append('Authorization', 'Basic ' + btoa(au));
     guid = guid || '92a7b323-5c9d-41e4-d07a-9a9d6a9f683b';
     const url = `https://eco-cou.oknosoft.ru/wb_21_doc/doc.calc_order%7C${guid}?revs_info=true`;
     console.log(url);
@@ -42,7 +47,7 @@ class Hist extends Component {
     const rev = e.target.innerText;
     const { input } = this.state;
     const headers = new Headers();
-    headers.append('Authorization', 'Basic ' + btoa('makeev_couchdb_admin:36VyxHfRXNAM'));
+    headers.append('Authorization', 'Basic ' + btoa(au));
     const guid = input || '92a7b323-5c9d-41e4-d07a-9a9d6a9f683b';
     const url = `https://eco-cou.oknosoft.ru/wb_21_doc/doc.calc_order%7C${guid}?rev=${rev}`;
     console.log(url);
@@ -78,7 +83,7 @@ class Hist extends Component {
     return (
       <div className="App-intro">
         <Menu />
-        <h1>HISTORY</h1>
+        <h5>HISTORY</h5>
         <TextField
           className="item"
           id="input"
@@ -88,14 +93,20 @@ class Hist extends Component {
           floatingLabelText="guid формат 92a7b323-5c9d-41e4-d07a-9a9d6a9f683b"
         />
         <RaisedButton className="item" label="Загрузить" onClick={this.handleClick} />
-        <ul>
-          {revs.map(rev => (
-            <li key={rev} onClick={this.revClick}>
-              {rev}
-            </li>
-          ))}
-        </ul>
-        <pre style={styles.pre} >{rev}</pre>
+        <div style={styles.grid}>
+          <div>
+            <ul>
+              {revs.map(rev => (
+                <li key={rev} onClick={this.revClick}>
+                  {rev}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <pre style={styles.pre}>{rev}</pre>
+          </div>
+        </div>
       </div>
     );
   }
