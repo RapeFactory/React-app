@@ -88,6 +88,7 @@ class Input extends Component {
     return (
       <div className="App-intro">
         <Menu />
+        <h4>Эскизы</h4>
         <div className="grid">
           <SelectField
             className="item"

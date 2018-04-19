@@ -83,7 +83,7 @@ class Hist extends Component {
     return (
       <div className="App-intro">
         <Menu />
-        <h5>HISTORY</h5>
+        <h4>История</h4>
         <TextField
           className="item"
           id="input"

@@ -7,6 +7,7 @@ class Menu extends Component {
       <div>
         <Link to="/" className='menu'>Эскизы</Link>
         <Link to="/hist" className='menu'>История</Link>
+        <Link to="/test" className='menu'>Тест</Link>
       </div>
     );
   }
