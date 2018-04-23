@@ -18,9 +18,12 @@ class Mouse extends Component {
   render() {
     const { x, y } = this.state;
     return (
-      <div>
+      <div className="App-intro">
         <Menu />
-        <div style={{ height: '700px', backgroundColor: '#ccffff' }} onMouseMove={this.handleMouseMove}>
+        <div
+          style={{ minHeight: '730px', minWidth: '100%', backgroundColor: '#ddffff' }}
+          onMouseMove={this.handleMouseMove}
+        >
           {this.props.children(x, y)}
         </div>
       </div>
@@ -32,9 +35,9 @@ const Test = () => (
   <Mouse>
     {(x, y) => (
       <div>
-        <h1>Move the mouse around!</h1>
+        <h4>Move the mouse around!</h4>
         <p>
-          The current mouse position is ({x}, {y - 229})
+          The current mouse position is ({x}, {y - 211})
         </p>
       </div>
     )}

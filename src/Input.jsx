@@ -22,9 +22,7 @@ class Input extends Component {
 
   getGuid = order => {
     const url =
-      (this.state.url === 'product'
-        ? `https://eco-cou.oknosoft.ru/wb_21_doc/`
-        : `http://192.168.0.2:5984/wb_21_doc/`) +
+      (this.state.url === 'product' ? `https://eco-cou.oknosoft.ru/wb_21_doc/` : `http://192.168.0.2:5984/wb_21_doc/`) +
       '_design/doc/_view/number_doc?include_docs=true&inclusive_end=true&' +
       `start_key=["doc.calc_order", 2017, "${order}"]&end_key=["doc.calc_order", 2017, "${order}"]`;
 
@@ -90,13 +88,7 @@ class Input extends Component {
         <Menu />
         <h4>Эскизы</h4>
         <div className="grid">
-          <SelectField
-            className="item"
-            floatingLabelText="База"
-            fullWidth
-            value={url}
-            onChange={this.selectChange}
-          >
+          <SelectField className="item" floatingLabelText="База" fullWidth value={url} onChange={this.selectChange}>
             <MenuItem value={'product'} primaryText="Product" />
             <MenuItem value={'develop'} primaryText="Develop" />
           </SelectField>
@@ -108,12 +100,7 @@ class Input extends Component {
             onChange={this.inputChange}
             floatingLabelText="guid формат 92a7b323-5c9d-41e4-d07a-9a9d6a9f683b"
           />
-          <RaisedButton
-            className="item"
-            label="Отобразить"
-            onClick={this.handleClick}
-            disabled={!loaded}
-          />
+          <RaisedButton className="item" label="Отобразить" onClick={this.handleClick} disabled={!loaded} />
         </div>
         <ImgList className="item1" imgs={imgs} loaded={loaded} />
       </div>

@@ -14,8 +14,8 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: '1fr 2fr',
-  },
+    gridTemplateColumns: '1fr 2fr'
+  }
 };
 
 class Hist extends Component {
