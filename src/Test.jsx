@@ -5,7 +5,7 @@ class Mouse extends Component {
   constructor(props) {
     super(props);
     this.handleMouseMove = this.handleMouseMove.bind(this);
-    this.state = { x: 0, y: 0 };
+    this.state = { x: 0, y: 211 };
   }
 
   handleMouseMove(event) {

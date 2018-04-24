@@ -11,6 +11,9 @@ class Menu extends Component {
         <Link to="/hist" className="menu">
           История
         </Link>
+        <Link to="/list" className="menu">
+          Контакты
+        </Link>
         <Link to="/test" className="menu">
           Тест
         </Link>

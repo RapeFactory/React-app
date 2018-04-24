@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Input from './Input';
 import Hist from './Hist';
 import Test from './Test'
+import ContactList from './ContactList';
 import { Switch, Route, HashRouter } from 'react-router-dom';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Input} />
               <Route path="/hist" component={Hist} />
+              <Route path="/list" component={ContactList} />
               <Route path="/test" component={Test} />
             </Switch>
           </HashRouter>
