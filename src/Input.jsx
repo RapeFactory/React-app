@@ -102,8 +102,8 @@ class Input extends Component {
               disabled        = {!loaded}
               backgroundColor = {red100}
             />
+          <ImgList imgs={imgs} loaded={loaded} />
           </div>
-          <ImgList className="item1" imgs={imgs} loaded={loaded} />
         </Paper>
       </div>
     );

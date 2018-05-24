@@ -12,7 +12,7 @@ class ImgList extends Component {
   render() {
     const { imgs, loaded } = this.props;
     return loaded ? (
-      <GridList cols={4} cellHeight={'auto'} style={styles.gridList}>
+      <GridList className="item4" cols={4} cellHeight={'auto'} style={styles.gridList}>
         {imgs.map((img, id) => {
           return (
             <GridTile key={id} title={img.id} titleBackground={'rgba(0, 0, 0, 0.1)'}>
@@ -23,9 +23,10 @@ class ImgList extends Component {
       </GridList>
     ) : (
       <CircularProgress
+        className="item1"
         size={150}
         thickness={10}
-        style={{ display: 'block', marginLeft: 130, marginTop: 50, alignSelf: 'center' }}
+        style={{ marginTop: '150px', justifySelf: 'center' }}
       />
     );
   }
