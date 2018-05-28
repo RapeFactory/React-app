@@ -4,8 +4,9 @@ import { Paper, FlatButton } from 'material-ui';
 import { blue100, orange100, green100, red100 } from 'material-ui/styles/colors';
 const style = {
   border: '10px',
-  margin: '10px',
-  padding: '10px'
+  padding: '10px',
+  width: 'fit-content',
+  margin: '10px auto'
 };
 
 class Menu extends Component {

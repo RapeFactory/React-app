@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
 import { Paper } from 'material-ui';
 import { blue50 } from 'material-ui/styles/colors';
 
@@ -21,7 +20,6 @@ class Mouse extends Component {
     const { x, y } = this.state;
     return (
       <div className="App-intro">
-        <Menu />
         <Paper
           zDepth={2}
           style={{ minHeight: '675px', minWidth: '99%', backgroundColor: blue50 }}

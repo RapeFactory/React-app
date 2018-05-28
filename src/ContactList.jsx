@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
 import './App.css';
 import { green50 } from 'material-ui/styles/colors';
 import { Paper } from 'material-ui';
@@ -114,7 +113,6 @@ class ContactList extends Component {
   render() {
     return (
       <div className="App-intro">
-        <Menu />
         <Paper zDepth={2} style={{ border: '100px', padding: '50px', backgroundColor: green50 }}>
           <h4>Контакты</h4>
           <div className="contacts">

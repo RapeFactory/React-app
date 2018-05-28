@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { RaisedButton, TextField, MenuItem, SelectField, Paper } from 'material-ui';
 import ImgList from './ImgList';
-import Menu from './Menu';
 import { red50, red100 } from 'material-ui/styles/colors';
 
 class Input extends Component {
@@ -79,7 +78,6 @@ class Input extends Component {
     const { imgs, loaded, url } = this.state;
     return (
       <div className="App-intro">
-        <Menu />
         <Paper zDepth={2} style={{ minHeight: '675px', minWidth: '99%', backgroundColor: red50 }}>
           <h4>Эскизы</h4>
           <div className="grid">
@@ -88,21 +86,21 @@ class Input extends Component {
               <MenuItem value={'develop'} primaryText="Develop" />
             </SelectField>
             <TextField
-              className         = "item1"
-              id                = "input"
-              hintText          = "guid"
-              onChange          = {this.inputChange}
-              floatingLabelText = "guid формат 92a7b323-5c9d-41e4-d07a-9a9d6a9f683b"
+              className="item1"
+              id="input"
+              hintText="guid"
+              onChange={this.inputChange}
+              floatingLabelText="guid формат 92a7b323-5c9d-41e4-d07a-9a9d6a9f683b"
               fullWidth
             />
             <RaisedButton
-              className       = "item1"
-              label           = "Отобразить"
-              onClick         = {this.handleClick}
-              disabled        = {!loaded}
-              backgroundColor = {red100}
+              className="item1"
+              label="Отобразить"
+              onClick={this.handleClick}
+              disabled={!loaded}
+              backgroundColor={red100}
             />
-          <ImgList imgs={imgs} loaded={loaded} />
+            <ImgList imgs={imgs} loaded={loaded} />
           </div>
         </Paper>
       </div>
