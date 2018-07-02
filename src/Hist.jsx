@@ -10,6 +10,7 @@ class Hist extends Component {
     this.state = {
       input: '',
       revs: [],
+      curRev: '',
       rev: ''
     };
   }
@@ -38,7 +39,7 @@ class Hist extends Component {
 
     fetch(url, { headers })
       .then(res => res.json())
-      .then(json => this.setState({ rev: beautify(json, null, 2, 120) }))
+      .then(json => this.setState({ rev: beautify(json, null, 2, 120), curRev: json._rev }))
       .catch(err => {
         console.error(err);
       });
@@ -62,7 +63,7 @@ class Hist extends Component {
   inputChange = e => this.setState({ input: e.target.value });
 
   render() {
-    const { revs, rev } = this.state;
+    const { revs, rev, curRev } = this.state;
     return (
       <div className="App-intro">
         <Paper zDepth={2} style={{ minHeight: '675px', minWidth: '99%', backgroundColor: orange50 }}>
@@ -80,7 +81,11 @@ class Hist extends Component {
             <div className="item2">
               <ul>
                 {revs.map(rev => (
-                  <li key={rev} onClick={this.revClick}>
+                  <li
+                    key={rev}
+                    style={{ color: rev === curRev ? 'red' : 'black', cursor: 'pointer' }}
+                    onClick={this.revClick}
+                  >
                     {rev}
                   </li>
                 ))}
